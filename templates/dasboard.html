@@ -19,13 +19,13 @@
       </div>
     </div>
   </section><!-- End Breadcrumbs -->
-  <div class ="container">
+  <div class ="container" style='margin-top :40px;'>
       <table class="table">
-        <thead>
-          <tr>
+        <thead > 
+          <tr style="background-color:#FF0000">
             <th>Files Name</th>
             <th>Original File Name</th>
-            <th>Action</th>
+            <th style="text-align:center">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -33,14 +33,33 @@
           <tr>
             <td>{{ upload1.file_name }}</td>
             <td>{{ upload1.uploadfile }}</td>
-            <td><form method ="post" action="{% url 'dataview'  upload1.pk %}">
+            <td>
+              <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2"  style='margin-right :40px;' role="group" aria-label="First group">
+              <form method ="post" action="{% url 'dataview'  upload1.pk %}">
               {% csrf_token %}
-              <button type="submit" class="btn btn-primary btn-sm" >View data</button>
+              <button type="submit" class="btn btn-primary" >View data</button>
             </form>
+          </div>
+          <div class="btn-group mr-2" role="group"  style='margin-right :40px;' aria-label="Second group">
               <form method ="post" action="{% url 'deleteupload' upload1.pk %}">
               {% csrf_token %}
-              <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
-            </form></td>
+              <button type="submit" class="btn btn-danger" >Delete</button>
+            </form>
+          </div>
+          <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
+            <form method ="post" action="{% url 'deleteupload' upload1.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success" >Analysis</button>
+            </form>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="Fourth group">
+            <form method ="post" action="{% url 'prediction' upload1.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success" >Predictions</button>
+            </form>
+            </div>
+            </div>
           </tr>
           {% endfor %}
         </tbody>
