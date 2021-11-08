@@ -1923,12 +1923,14 @@ section {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-#footer {
-  background: #4a5562;
-  padding: 0 0 30px 0;
-  color: #fff;
-  font-size: 14px;
-}
+/* #footer { */
+  /* background: #4a5562; */
+ /* width:90vw; */
+    /* display: block; */
+    /* overflow-y: overlay;
+    padding-right: 0;
+    margin-right: 0;
+} */
 
 #footer .footer-top {
   background: #515d6a;
@@ -2076,3 +2078,39 @@ section {
 #footer .credits a:hover {
   color: white;
 }
+
+/* Created new style sheet instead of doing the stuff here */
+
+ /* .table-bottom{ */
+  /* margin-top: 10rem; */
+  /* position: sticky;
+              bottom: 0px; */
+  /* position: relative;
+  bottom:0rem; */
+  /* width: fit-content; */
+  /* display: grid !important;
+  grid-template-columns: 1fr 1fr 0.7fr 1fr 0.7fr !important ;
+  /* margin: 0rem 1.9rem; */
+  /* padding: 0rem 1.9rem !important;
+  background-color: #f2f2f2 !important;
+  /* justify-content: space-around; */
+/* }  */
+
+/* .list-table{
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  font-size: small;
+  justify-content: space-around;
+  text-align: left;
+}  */
+
+/* .list-items-table:first-child{
+  font-weight: 500;
+  font-size: medium;
+}
+
+.list-items-table{
+  padding: 0.5rem;
+  
+}  */
