@@ -1,0 +1,63 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% block body %}
+<!-- ======= Header ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>Data View</h4>
+        <ol>
+          <li><a href="home1">Home</a></li>
+          <li>ViewData</li>
+        </ol>
+      </div>
+    </div>
+  </section><!-- End Breadcrumbs -->
+  <div class ="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Files Name</th>
+          <th>Original File Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ upload.file_name }}</td>
+          <td>{{ upload.uploadfile }}</td>
+          <td><form method ="post" action="{% url 'dataview'  upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-sm" >View data</button>
+          </form>
+            <form method ="post" action="{% url 'deleteupload' upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
+          </form></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container"> 
+    {{ d | safe }}
+  </div>
+    
+    
+    
+ 
+{% endblock body %}
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>

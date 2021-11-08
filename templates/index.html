@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% block body %}
+<!-- ======= Header ======= -->
+<
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <ol class="carousel-indicators" id="hero-carousel-indicators">
+      
+
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active" style="background-image: url(/static/img/c1q.jpg)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>ALLSOL</span></h2>
+            <p class="animate__animated animate__fadeInUp">This Website is Built For Helping Beginners Who want to enroll themselves in Competitive Coding.We will Help You Wherever You face Difficulty Whether its Understanding or Implementing</p>
+            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item" style="background-image: url(/static/img/python.png)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown"></h2>
+            <p class="animate__animated animate__fadeInUp">Generally the pythons are better than anything else at killing.</p>
+            <!--<a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            --></div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item" style="background-image: url(/static/img/c++.png)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown"></h2>
+            <p class="animate__animated animate__fadeInUp">When done well, software is invisible</p>
+            <!--<a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            --> 
+          </div>
+        </div>
+      </div>
+      
+    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+    </a>
+
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <h2>Mini Projects For Computer Science Engineers</h2>
+          <h3>Mini projects are an important starter kit for developers who want to pursue a career in tech.
+
+            Interviewers are particularly interested in your mini projects. The computer science mini projects you work on sheds light on your career interests and speaks for your enthusiasm to learn tech concepts at a deeper level.
+            
+            </h3>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Moreover, when you apply your theoretical knowledge in a hands-on way, you get to explore a breadth of concepts related to your topic.
+            
+            The practical experience gained from tackling technical challenges in your mini project helps you walk away with longer retention of applied skills.
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i>When it comes to selecting a mini project, it is not paramount to select an innovative idea. What you learn out of it is important to showcase your skillset.</li>
+            <li><i class="ri-check-double-line"></i> More than going after the number of projects, interviewers usually ask questions hoping you would have chosen mini projects that you care about. Having multiple projects in your resume and not being able to give in-depth answers about them throws you in a bad light.</li>
+            <li><i class="ri-check-double-line"></i> Best strategy to choose the right projects
+              As a recommended practice, work towards having 3-5 mini projects in your resume.</li>
+          </ul>
+          <p class="fst-italic">
+           Here on RoyalCodex Check out some interesting projects you can add to your resume.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock body %}
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>
