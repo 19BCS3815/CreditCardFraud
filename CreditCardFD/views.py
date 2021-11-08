@@ -59,6 +59,7 @@ def dataview(request,pk):
         name=upload.uploadfile
         print(name)
         df=pd.read_csv(name)
+        df=df.head(101)
         data=df.to_html()
         context = {'d': data,'upload':upload}
     return render(request, 'dataview.html', context,)
