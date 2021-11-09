@@ -16,11 +16,9 @@ urlpatterns = [
     path("deleteupload/<int:pk>",views.deleteupload,name="deleteupload"),
     path("dataview/<int:pk>/", views.dataview, name='dataview'),
      path("dataview/home1", views.home1, name='dataview/home1'),
-    path("intmCPproject", views.intmCPproject, name='intmCPproject'),
-    path("advCPproject", views.advCPproject, name='advCPproject'),
+  
     path("easyCproject", views.easyCproject, name='easyCproject'),
-    path("intmCproject", views.intmCproject, name='intmCproject'),
-    path("advCproject", views.advCproject, name='advCproject'),
+  
     path("easyJproject", views.easyJproject, name='easyJproject'),
     path("intmJproject", views.intmJproject, name='intmJproject'),
     path("advJproject", views.advJproject, name='advJproject'),

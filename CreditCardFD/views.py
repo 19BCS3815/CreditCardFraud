@@ -7,6 +7,11 @@ from .forms import uploadForm
 from .models import upload1
 import pandas as pd
 import json
+import pickle
+import matplotlib.pyplot as plt
+import numpy as np
+
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -58,17 +63,81 @@ def dataview(request,pk):
         upload =upload1.objects.get(pk=pk)
         name=upload.uploadfile
         print(name)
-        df=pd.read_csv(name)
-        df=df.head(101)
-        data=df.to_html()
-        context = {'d': data,'upload':upload}
+        global df
+        df= pd.read_csv(name)
+        df1=df.head(101)
+        data1=df1.to_html()
+        context = {'d': data1,'upload':upload}
+
+                # Load the dataset from the csv file using pandas
+        
+        global data
+        data=df
+        global datawithcol
+        datawithcol=df
+        # Splitting the data into Independent (X) and Dependent (Y) data sets
+       
+        pred()
+        analysis()
+        
     return render(request, 'dataview.html', context,)
-def easyCPproject(request):
-    return render(request,'easyCPproject.html')
-def intmCPproject(request):
-    return render(request,'intmCPproject.html')
-def advCPproject(request):
-    return render(request,'advCPproject.html')
+
+
+    
+def pred():
+       
+        # Splitting the data into Independent (X) and Dependent (Y) data sets
+        X = data
+
+        # Getting the values of X and Y (Numpy array with no columns)
+        xTest = X.values
+    
+       
+        Modelname = "D:/CreditCardFraud/CreditCardFD/model.pkl"
+                
+        #Load the Model back from file
+        with open(Modelname, 'rb') as file:
+            rfc = pickle.load(file)
+
+        #Predict the value of 'Class' using the reloaded Model
+        yPred = rfc.predict(xTest)
+
+        datawithcol.insert(1, "Predicted Class", yPred, True)
+        print(yPred)
+        print(datawithcol.head(10))
+        
+
+
+
+def analysis():
+
+     dfa=datawithcol   
+     dshape=dfa.shape
+     uniqueId = dfa["Predicted Class"].unique() 
+     totalrec=dfa["Predicted Class"].count()
+     fraud= dfa["Predicted Class"].sum()
+     fraudper = (fraud/totalrec) *100
+     nonf= 100 - fraudper
+     nonfcount= totalrec - fraud
+     print(dshape)
+     print(uniqueId)
+     print(totalrec)
+     print(fraud)
+     print(fraudper)
+     print(nonf )
+     print(nonfcount)
+
+
+
+     y = np.array([fraud, nonfcount])
+     mylabels = ["Fraudulent Cases", "Non-Fraudulent Cases"]
+     myexplode = [0.2, 0]
+
+     plt.pie(y, labels = mylabels, explode = myexplode, shadow = True)
+     
+    
+
+
 def easyCproject(request):
     return render(request,'easyCproject.html')
 def intmCproject(request):
