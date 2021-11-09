@@ -7,8 +7,6 @@ from .forms import uploadForm
 from .models import upload1
 import pandas as pd
 import json
-import pickle
-global data1
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -59,53 +57,14 @@ def dataview(request,pk):
     if request.method == "POST":
         upload =upload1.objects.get(pk=pk)
         name=upload.uploadfile
+        print(name)
         df=pd.read_csv(name)
-        df1=df.head(101)
-        json_records = df1.reset_index().to_json(orient ='records')
-        data = []
-        data = json.loads(json_records)
+        df=df.head(101)
+        data=df.to_html()
         context = {'d': data,'upload':upload}
-        global data1
-        data1=df
-        global datawithcol
-        datawithcol=df
-        # Splitting the data into Independent (X) and Dependent (Y) data sets
-    return render(request, 'dataview.html', context)
-
-def pred():
-       
-        X = data1
-
-        # Getting the values of X and Y (Numpy array with no columns)
-        xTest = X.values
-    
-       
-        Modelname = 'C:/Users/hp/Documents/GitHub/CreditCardFraud/CreditCardFD/model.pkl'
-                
-        #Load the Model back from file
-        with open(Modelname, 'rb') as file:
-            rfc = pickle.load(file)
-
-        #Predict the value of 'Class' using the reloaded Model
-        yPred = rfc.predict(xTest)
-
-        datawithcol.insert(1, "Predicted_Class", yPred, True)
-
-        print(datawithcol.head(10))
-        return datawithcol
-
-
-def prediction(request,pk):
-    if request.method == "POST":
-        upload =upload1.objects.get(pk=pk)
-        df2=pred()
-        df2.drop(df2.columns[[0]], axis=1)
-        print(df2)
-        json_records = df2.reset_index().to_json(orient ='records')
-        data = []
-        data = json.loads(json_records)
-        context = {'d': data,'upload':upload}
-    return render(request,'prediction.html',context)
+    return render(request, 'dataview.html', context,)
+def easyCPproject(request):
+    return render(request,'easyCPproject.html')
 def intmCPproject(request):
     return render(request,'intmCPproject.html')
 def advCPproject(request):
