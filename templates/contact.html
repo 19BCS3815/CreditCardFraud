@@ -10,62 +10,83 @@
     <div class="container">
 
       <div class="d-flex justify-content-between align-items-center">
-        <h4>Add Files</h4>
+        <h4>Contact Us</h4>
         <ol>
           <li><a href="home">Home</a></li>
-          <li>Add Files</li>
+          <li>Contact Us</li>
         </ol>
       </div>
 
     </div>
   </section><!-- End Breadcrumbs -->
-  <!-- ======= file upload Section ======= -->
-  <style>
-     form{
-        
-        margin : 10px 20px 10px 10px;
+  
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
 
-        
-     }
-      h3.htag{
-        border-radius: 5px;
-        background-color: #ee3d3d;
-        text-align: center;
+        <div>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        </div>
 
-      }
-      .container1{
-        border-radius: 5px;
-        border: 3px solid #f5f3f7; 
-        width : 60%;
-        margin : 10px 150px 10px 250px;
-      }
-      .form-group{
-          margin:10px 20px 10px 10px;
-      }
-     
-  </style>
-  <div class="container1">
+        <div class="row mt-5">
 
-      <h3 class="htag">Upload Credit Card Dataset</h3>
-      <form action="dashboard" method ="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">   
-      <label  >File Name</label>
-      <input type="text" name="FileName" class="form-control" placeholder="File Name" required>
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-bank"></i>
+                <h4>University:</h4>
+                <p>Chandigarh University</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Address:</h4>
+                <p>NH-95, Ludhiana - Chandigarh State Hwy, Punjab 140413</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi-credit-card-2-back-fill"></i>
+                <h4>Project Name:</h4>
+                <p>Credit Card Fraud Detection </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
       </div>
-      <div class="form-group">
-      <label class="label" for="">Upload Credit Card Dataset file </label>
-      <input type="file" name="UCCD" class="form-control">
-      </div>
-      <div class="form-group">
-      <label for="exampleFormControlTextarea1">DESCRIPTION</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-      <button type="submit" class="form-control btn btn-primary submit px-3">Submit</button>
-      </div>
-    </form>
-  </div>
+    </section><!-- End Contact Section -->
+
+
 {% endblock body %}
 
 <!--<div class="alert_0">-->

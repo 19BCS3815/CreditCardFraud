@@ -22,7 +22,7 @@
   <div class ="container" style='margin-top :40px;'>
       <table class="table">
         <thead > 
-          <tr style="background-color:#FF0000">
+          <tr style="background-color:red">
             <th>Files Name</th>
             <th>Original File Name</th>
             <th style="text-align:center">Action</th>
@@ -48,7 +48,7 @@
             </form>
           </div>
           <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
-            <form method ="post" action="{% url 'deleteupload' upload1.pk %}">
+            <form method ="post" action="{% url 'analysis' upload1.pk %}">
               {% csrf_token %}
               <button type="submit" class="btn btn-success" >Analysis</button>
             </form>
