@@ -8,7 +8,7 @@
   
 {% block body %}
 <!-- ======= Header ======= -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs"  style="background-color:#E3E3E3">
     <div class="container">
 
       <div class="d-flex justify-content-between align-items-center">
@@ -20,12 +20,16 @@
       </div>
     </div>
   </section><!-- End Breadcrumbs -->
-  <div class ="container"  style='margin:30px 0px 50px 60px;'>
+  <div class='container'>
+    <br>
+  
+    </div>
+  <div class ="container" >
     <table class="table">
       <thead > 
-        <tr style="background-color:#FF0000">
-          <th>Files Name</th>
-          <th>Original File Name</th>
+        <tr style="background-color:#C3073F">
+          <th>File Name</th>
+          <th>File Name In Database</th>
           <th style="text-align:center">Action</th>
         </tr>
       </thead>
@@ -35,31 +39,32 @@
           <td>{{ upload.uploadfile }}</td>
           <td style="text-align:center">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-              <div class="btn-group mr-2"  style='margin-right :40px;' role="group" aria-label="First group">
+              <div class="btn-group mr-2"  style='margin-right :40px;margin-left :105px;' role="group" aria-label="First group">
             <form method ="post" action="{% url 'dataview'  upload.pk %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-primary" >View data</button>
           </form>
         </div>
-        <div class="btn-group mr-2" role="group"  style='margin-right :40px;' aria-label="Second group">
+        <div class="btn-group mr-2" role="group" style='margin-right :40px;' aria-label="Second group">
+          <form method ="post" action="{% url 'prediction' upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success" >Predictions</button>
+          </form>
+          </div>
+          <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
+            <form method ="post" action="{% url 'analysis' upload.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-warning" >Analysis</button>
+            </form>
+            </div>
+        <div class="btn-group mr-2" role="group"  aria-label="Fourth group">
             <form method ="post" action="{% url 'deleteupload' upload.pk %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger" >Delete</button>
           </form>
         </div>
-        <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
-          <form method ="post" action="{% url 'analysis' upload.pk %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-success" >Analysis</button>
-          </form>
           </div>
-          <div class="btn-group mr-2" role="group" aria-label="Fourth group">
-          <form method ="post" action="{% url 'deleteupload' upload.pk %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-success" >Predictions</button>
-          </form>
-          </div>
-          </div>
+          </td>
         </tr>
        
       </tbody>
@@ -72,10 +77,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
    
   <div class="container" style="overflow-x:auto;" style="margin:20px 20px 20px 20px">
-  <table class="table table-fluid" id="myTable" style="border: 1px solid black;
+  <table class="table table-active table-bordered" id="myTable" style="border: 1px solid black;
   border-collapse: collapse;">
     <thead>
-      <tr style="background-color:navajowhite">
+      <tr>
          <th>Sn</th> 
         <th>Predicted Class</th>
         <th>Time</th>
@@ -114,9 +119,9 @@
     {% if d %}  
     {% for i in d %}
     {% if i.Predicted_Class == 0 %}
-     <tr style="background-color: green;">
+     <tr style="background-color:#15DB95;">
     {% else %}
-      <tr style="background-color: red;">
+      <tr style="background-color:#F13C20;">
     {% endif %}
         <td>{{i.SN}}</td>
         <td>{{i.Predicted_Class}}</td>

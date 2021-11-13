@@ -20,6 +20,11 @@ from Credit_Card.settings import STATIC_URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('',include('CreditCardFD.urls'))
+     path('',include('CreditCardFD.urls')),
+     path('dataview/<int:pk>/',include('CreditCardFD.urls')),
+    path('prediction/<int:pk>/',include('CreditCardFD.urls')),
+    path('analysis/<int:pk>/',include('CreditCardFD.urls')),
+
 ]
+
   

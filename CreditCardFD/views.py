@@ -5,14 +5,14 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import uploadForm
 from .models import upload1
-from .utils import dataview1,pred,analysis
+from .utils import dataview1, dist_plot, line_chart,pred,analysis,get_barchart,dist_plot,get_heatmap,line_chart
 import pandas as pd
 import json
 import pickle
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-def home(request):
+def home(request,pk=0):
     return render(request, 'index.html')
 def about(request):
     return render(request, 'about.html')
@@ -34,7 +34,7 @@ def signin(request):
 
       return render(request, 'signin.html')
 #     # return HttpResponse("this is service page")
-def home1(request):
+def home1(request,pk=0):
     if request.method == 'POST':
         form = uploadForm(request.POST, request.FILES)
         if form.is_valid():
@@ -45,7 +45,7 @@ def home1(request):
     return render(request, 'index1.html', {
         'form': form
     })
-def dashboard(request):
+def dashboard(request,pk=0):
     uploads=upload1.objects.all()
     return render(request,'dasboard.html',{'uploads':uploads})
 
@@ -61,8 +61,8 @@ def dataview(request,pk):
     if request.method == "POST":
         upload =upload1.objects.get(pk=pk)
         name=upload.uploadfile
-        data=dataview1(name)
-        context = {'d': data,'upload':upload}
+        data1=dataview1(name)
+        context = {'d': data1,'upload':upload}
     return render(request, 'dataview.html', context)
 
 
@@ -83,12 +83,25 @@ def Analysis(request,pk):
     if request.method == "POST":
         upload =upload1.objects.get(pk=pk)
         name=upload.uploadfile
-        analysisarray=analysis(name)
-        context = {'d': analysisarray,'upload':upload}
+        name1=name
+        print(name)
+        anarray=analysis(name)
+        dis_plot=dist_plot()
+        barchart=get_barchart(anarray["fraud"],anarray["nonfcount"])
+        corr=get_heatmap(name1)
+        
+        line_chart1=line_chart()
+        global context
+        context = {'d': anarray,'upload':upload,'dis_plot':dis_plot ,'barchart':barchart,"corr":corr,"line_chart":line_chart1}
     return render(request,'Analysis.html',context)
 
-
-def about1(request):
+def line(request,pk=0):
+    if request.method == "POST":
+        var=request.POST['cars']
+        line=line_chart(var)
+        context.update({"line_chart":line})
+    return render(request,'Analysis.html',context)
+def about1(request,pk=0):
     return render(request,'about1.html')
 def intmCproject(request):
     return render(request,'intmCproject.html')

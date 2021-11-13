@@ -3,7 +3,7 @@
 {% block title %}About{% endblock title %}
 
 {% block body %}
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs" style="background-color:#E3E3E3">
     <div class="container">
 
       <div class="d-flex justify-content-between align-items-center">
@@ -39,7 +39,36 @@
 
     </div>
   </section>
+  <section id="about2" class="about">
+    <div class="container">
 
+      <div class="row content">
+        <div class="col-lg-6">
+          <style>
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        </style>
+          <img src="/static/img/rfc.jpg" style="width:600px; height:400px;">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <h3 style="font-weight: bold; text-align:justify;">The Random Forest Classifier</h3>
+          <p>Random forest is a supervised learning algorithm. The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method. The general idea of the bagging method is that a combination of learning models increases the overall result.
+
+            Put simply: random forest builds multiple decision trees and merges them together to get a more accurate and stable prediction.
+            
+            One big advantage of random forest is that it can be used for both classification and regression problems, which form the majority of current machine learning systems.</p>
+         <p>
+          Random forest adds additional randomness to the model, while growing the trees. Instead of searching for the most important feature while splitting a node, it searches for the best feature among a random subset of features. This results in a wide diversity that generally results in a better model.
+
+          Therefore, in random forest, only a random subset of the features is taken into consideration by the algorithm for splitting a node.
+         </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 
 {% endblock body %}

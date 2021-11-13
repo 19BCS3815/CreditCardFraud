@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 {% block body %}
 <!-- ======= Header ======= -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs" style="background-color:#E3E3E3">
     <div class="container">
 
       <div class="d-flex justify-content-between align-items-center">
@@ -30,9 +30,9 @@
         
      }
       h3.htag{
-        border: 5px;
+        border-radius: 5px;
         height: 50px;
-        background-color: #ee3d3d;
+        background-color: #C3073F;
         text-align: center;
 
       }
@@ -40,14 +40,17 @@
         border-radius: 5px;
         border: 3px solid #f5f3f7; 
         width : 60%;
-        margin : 10px 150px 10px 250px;
+        margin:auto;
       }
       .form-group{
           margin:10px 20px 10px 10px;
       }
      
   </style>
-  <div class="container1">
+  <div class='container'>
+    <br>
+  </div>
+  <div class="container1" >
 
       <h3 class="htag">Upload Credit Card Dataset</h3>
       <form method="post" enctype="multipart/form-data">
@@ -55,6 +58,9 @@
         {{ form|crispy }}
         <button type="submit" class="form-control btn btn-primary submit px-3">Submit</button>
       </form> 
+  </div>
+  <div class='container'>
+    <br>
   </div>
 {% endblock body %} 
 
