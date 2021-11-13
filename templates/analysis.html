@@ -176,13 +176,13 @@ h3.htag{
     </div> 
    
       <div class="row">
-        <h3 class="htag">Case Distribution Using Pie Chart</h3>
+        <h3 class="htag">Case Distribution Using Dist Plot</h3>
         {% if dis_plot %}
         <img src="data:image/png;base64, {{dis_plot | safe}}">
         {% endif %}
       </div> 
       <div class="row">
-        <h3 class="htag">Total Value Fraud And Normal Transaction</h3>
+        <h3 class="htag">Total Value of Fraud And Normal Transaction</h3>
         {% if barchart %}
         <img src="data:image/png;base64, {{barchart | safe}}" >
         {% endif %}

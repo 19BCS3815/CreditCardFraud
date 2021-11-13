@@ -133,7 +133,7 @@ def line_chart(var='Amount'):
 
 def dist_plot():
     plt.clf()
-    fig, ax = plt.subplots(1, 2, figsize=(18,4))
+    fig, ax = plt.subplots(1, 2, figsize=(18,10))
     rsltdf = datawithcol.loc[datawithcol['Predicted_Class'] == 1]
     amount_val = rsltdf['Amount'].values
     time_val = rsltdf['Time'].values
