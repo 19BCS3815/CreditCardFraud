@@ -23,7 +23,7 @@ urlpatterns = [
     path("contact",views.contact,name='contact'),
     path("line",views.line,name='line'),
     
-    path("intmCproject", views.intmCproject, name='intmCproject'),
+    path("download/<str:filename>/", views.download, name='download'),
     path("advCproject", views.advCproject, name='advCproject'),
     path("easyJproject", views.easyJproject, name='easyJproject'),
     path("intmJproject", views.intmJproject, name='intmJproject'),

@@ -9,6 +9,8 @@ from .utils import dataview1, dist_plot, line_chart,pred,analysis,get_barchart,d
 import pandas as pd
 import json
 import pickle
+import os
+import mimetypes
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -72,11 +74,14 @@ def prediction(request,pk):
         upload =upload1.objects.get(pk=pk)
         name=upload.uploadfile
         df=pred(name)
-        df=df.head(101)
+        filename="Complete_predictive_result.csv"
+        t='media/download/'+filename
+        df.to_csv(t)
+        df=df.head(500)
         json_records = df.reset_index().to_json(orient ='records')
         data = []
         data = json.loads(json_records)
-        context = {'d': data,'upload':upload}
+        context = {'d': data,'upload':upload, 'file':filename}
     return render(request,'prediction.html',context)
 
 def Analysis(request,pk):
@@ -103,8 +108,22 @@ def line(request,pk=0):
     return render(request,'Analysis.html',context)
 def about1(request,pk=0):
     return render(request,'about1.html')
-def intmCproject(request):
-    return render(request,'intmCproject.html')
+def download(request,filename):
+   if filename != '':
+        # Define Django project base directory
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        # Define the full file path
+        filepath = 'media/download/' + filename
+        # Open the file for reading content
+        path = open(filepath, 'rb')
+        # Set the mime type
+        mime_type, _ = mimetypes.guess_type(filepath)
+        # Set the return value of the HttpResponse
+        response = HttpResponse(path, content_type=mime_type)
+        # Set the HTTP header for sending to browser
+        response['Content-Disposition'] = "attachment; filename=%s" % filename
+        # Return the response value
+        return response
 def advCproject(request):
     return render(request,'advCproject.html')
 def easyJproject(request):

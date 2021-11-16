@@ -2,6 +2,8 @@
 {% load static %}
 {% block title %}{% endblock title %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  </style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -80,8 +82,12 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
  
    <div class="container" style="overflow-x:auto;" style="padding-bottom: 50px;">
-   
-  <table class="table table-light table-bordered" id="myTable" style="border: 1px solid black;
+   <div class="container">
+    <br>
+    <br>
+   </div>
+
+  <table class="table table-light table-bordered" id="myTable" style="border: 1px solid pink;
   border-collapse: collapse;">
     <thead>
       <tr>
@@ -120,45 +126,49 @@
     </thead>
     <tbody>
     {% if d %}  
-    {% for i in d %}
-      <tr>
-        <td>{{i.SN}}</td>
-        <td>{{i.Time}}</td>
-        <td>{{i.V1}}</td>
-        <td>{{i.V2}}</td>
-        <td>{{i.V3}}</td>
-        <td>{{i.V4}}</td>
-        <td>{{i.V5}}</td>
-        <td>{{i.V6}}</td>
-        <td>{{i.V7}}</td>
-        <td>{{i.V8}}</td>
-        <td>{{i.V9}}</td>
-        <td>{{i.V10}}</td>
-        <td>{{i.V11}}</td>
-        <td>{{i.V12}}</td>
-        <td>{{i.V13}}</td>
-        <td>{{i.V14}}</td>
-        <td>{{i.V15}}</td>
-        <td>{{i.V16}}</td>
-        <td>{{i.V17}}</td>
-        <td>{{i.V18}}</td>
-        <td>{{i.V19}}</td>
-        <td>{{i.V20}}</td>
-        <td>{{i.V21}}</td>
-        <td>{{i.V22}}</td>
-        <td>{{i.V23}}</td>
-        <td>{{i.V24}}</td>
-        <td>{{i.V25}}</td>
-        <td>{{i.V26}}</td>
-        <td>{{i.V27}}</td>
-        <td>{{i.V28}}</td>
-        <td>{{i.Amount}}</td>
-      </tr>
+    {% for i in d  %}
+        {% if  forloop.counter <= 500 %}
+            <tr>
+              <td>{{i.SN}}</td>
+              <td>{{i.Time}}</td>
+              <td>{{i.V1}}</td>
+              <td>{{i.V2}}</td>
+              <td>{{i.V3}}</td>
+              <td>{{i.V4}}</td>
+              <td>{{i.V5}}</td>
+              <td>{{i.V6}}</td>
+              <td>{{i.V7}}</td>
+              <td>{{i.V8}}</td>
+              <td>{{i.V9}}</td>
+              <td>{{i.V10}}</td>
+              <td>{{i.V11}}</td>
+              <td>{{i.V12}}</td>
+              <td>{{i.V13}}</td>
+              <td>{{i.V14}}</td>
+              <td>{{i.V15}}</td>
+              <td>{{i.V16}}</td>
+              <td>{{i.V17}}</td>
+              <td>{{i.V18}}</td>
+              <td>{{i.V19}}</td>
+              <td>{{i.V20}}</td>
+              <td>{{i.V21}}</td>
+              <td>{{i.V22}}</td>
+              <td>{{i.V23}}</td>
+              <td>{{i.V24}}</td>
+              <td>{{i.V25}}</td>
+              <td>{{i.V26}}</td>
+              <td>{{i.V27}}</td>
+              <td>{{i.V28}}</td>
+              <td>{{i.Amount}}</td>
+            </tr>
+            {% endif %}    
+      
     {% endfor %}
     {% endif %}
     </tbody>
     
   </table>
+  
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -173,10 +183,7 @@
 <script>
   $(document).ready( function () {
   $('#myTable').DataTable( {
-    dom: 'Blfrtip',
-  buttons: [
-      'copy', 'csv', 'excel', 'pdf', 'print'
-  ]
+    
 } );
 } );
   </script>
