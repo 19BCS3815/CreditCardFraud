@@ -77,6 +77,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
    
   <div class="container" style="overflow-x:auto;" style="margin:20px 20px 20px 20px">
+    <button type="button" class="btn btn-outline-danger"> <a href="{% url 'download' file %}">Download Complete CSV File</a> </button>
+  <div class="container">
+    <br>
+  </div>
   <table class="table table-active table-bordered" id="myTable" style="border: 1px solid black;
   border-collapse: collapse;">
     <thead>
@@ -175,10 +179,7 @@
 <script>
   $(document).ready( function () {
   $('#myTable').DataTable( {
-    dom: 'Blfrtip',
-  buttons: [
-      'copy', 'csv', 'excel', 'pdf', 'print'
-  ]
+    
 } );
 } );
   </script>

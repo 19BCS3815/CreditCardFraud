@@ -73,10 +73,12 @@
 <style>
 h3.htag{
   border: 5px;
-  height: 50px;
+  height: 40px;
   background-color: #c5d5cd;
+  align-content:center;
   text-align: center;
-
+ 
+  
 }
 </style>
 
@@ -176,13 +178,13 @@ h3.htag{
     </div> 
    
       <div class="row">
-        <h3 class="htag">Case Distribution Using Dist Plot</h3>
+        <h3 class="htag">Analysis of Time and Amount Variables</h3>
         {% if dis_plot %}
         <img src="data:image/png;base64, {{dis_plot | safe}}">
         {% endif %}
       </div> 
       <div class="row">
-        <h3 class="htag">Total Value of Fraud And Normal Transaction</h3>
+        <h3 class="htag">Total Value of Fraud And Normal Transactions</h3>
         {% if barchart %}
         <img src="data:image/png;base64, {{barchart | safe}}" >
         {% endif %}
@@ -195,7 +197,8 @@ h3.htag{
       </div>
     </div> 
     <div class="row">
-        <h3 class="htag">Heatmap</h3>
+      
+        <h3 class="htag">Correlation Heatmap</h3>
         <img src="data:image/png;base64, {{corr | safe}}">
     </div> 
     <div class='container'>
